@@ -1,0 +1,46 @@
+﻿@model TestTopCovidCases.ViewModels.CovidCasesViewModel
+
+@{
+    ViewBag.Title = "index";
+}
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{ 
+<div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.DropDownList("Regions", Model.regionslists)
+            <input id="SubmitFilter" type="submit" value="Report" />
+            <button class="export-btnXML" >XML </button/>
+            <button class="export-btnJSON">JSON </button/>
+            <button class="export-btnCSV">CSV</button>
+
+            <table class="table table-responsive" id="tblCOVID" style="width:400px">
+                <tr>
+                    <th>
+                        REGION/PROVINCE
+                    </th>
+                    <th>
+                        CASES
+                    </th>
+                    <th>
+                        DEATHS
+                    </th>
+                </tr>
+                @foreach (var item in Model.reports.data)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.region)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.confirmed)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.deaths)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}

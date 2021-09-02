@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Top 10 COVID Cases", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - TOP 10 COVID CASES</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/FileSaver.js"></script>
+
+    <script src="https://rawcdn.githack.com/FuriosoJack/TableHTMLExport/v2.0.0/src/tableHTMLExport.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".export-btnCSV").click(function () {
+                $("#tblCOVID").tableHTMLExport({
+                    type: 'csv',
+                    filename: 'TopCovid.csv',
+                });
+            });
+
+            $(".export-btnXML").click(function export2xml() {
+                let data = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <js-skills-list>
+    ${Array.from(document.querySelectorAll("tbody tr"))
+                        .map(
+                            skill => `
+      <skill>
+        <name>${skill.children[0].innerText}</name>
+        <author>${skill.children[1].innerText}</author>
+        <description>${skill.children[2].innerText}</description>
+      </skill>
+    `
+                        )
+                        .join("")}
+    </js-skills-list>
+  `;
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(new Blob([data], {
+                    type: "text/xml"
+                }));
+                a.setAttribute("download", "data.xml");
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+);
+
+            $(".export-btnJSON").click(function () {
+                $("#tblCOVID").tableHTMLExport({
+                    type: 'json',
+                    filename: 'TopCovid.json',
+                });
+            });
+
+
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTopCovidCases", "TestTopCovidCases\TestTopCovidCases.csproj", "{EC52E997-F6D3-447E-969D-607244C02797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTopCovidCases.Tests", "TestTopCovidCases.Tests\TestTopCovidCases.Tests.csproj", "{D3E8CA62-A454-4350-BFDD-850E32CDFC88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC52E997-F6D3-447E-969D-607244C02797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC52E997-F6D3-447E-969D-607244C02797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC52E997-F6D3-447E-969D-607244C02797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC52E997-F6D3-447E-969D-607244C02797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E8CA62-A454-4350-BFDD-850E32CDFC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E8CA62-A454-4350-BFDD-850E32CDFC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E8CA62-A454-4350-BFDD-850E32CDFC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E8CA62-A454-4350-BFDD-850E32CDFC88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48A2358-7DE0-4608-BC36-4DBC688CAF25}
+	EndGlobalSection
+EndGlobal
